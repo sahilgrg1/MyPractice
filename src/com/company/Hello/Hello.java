@@ -162,5 +162,41 @@ public class Hello
         }
         return count;
     }
-    
+    public boolean loop()
+    {
+        if(head == null)
+        {
+            return false;
+        }
+        Node fast = head ;
+        Node slow = head ;
+        int count = 0 ;
+        while(fast.next.next != null || fast.next != null)
+        {
+            if(fast.next.next == slow.next)
+            {
+                return true;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return false;
+    }
+    public void pairwiseswap()
+    {
+        if(head == null)
+        {
+            return ;
+
+        }
+        Node temp = head ;
+        while(temp != null && temp.next!=null)
+        {
+            int k = temp.value;
+            temp.value = temp.next.value;
+            temp.next.value = k ;
+            temp = temp.next.next;
+        }
+    }
+
 }
