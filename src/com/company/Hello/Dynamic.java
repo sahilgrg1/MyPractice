@@ -1,36 +1,43 @@
 package com.company.Hello;
 
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.Set;
 
-public class Dynamic
+class Dynamic
 {
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(1);
-        list.get(2);
-        list.add(45);
-        dupli(list);
-
-
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        patt(n);
     }
-    public static void dupli(LinkedList list)
+    public static void patt(int n)
     {
-        HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < list.size() ; i++) {
-            set.add((Integer) list.get(i));
-            if(set.contains(list.get(i)))
-            {
-                continue;
+        for (int row = 1; row <= n  ; row++) {
+            for (int col = 0; col <= n - row  ; col++) {
+                System.out.print(" ");
+
             }
+            if(row == 1 || row == n )
+            {
+                for (int col = 1; col <= n  ; col++) {
+                    System.out.print("*");
 
+                }
+            }
+            else
+            {
+                for (int col = 1; col <= n  ; col++) {
+                    if(col == 1 || col == n )
+                    {
+                        System.out.print("*");
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+                    
+                }
+            }
+            System.out.println();
         }
-        System.out.println(set);
-
     }
-
 }
